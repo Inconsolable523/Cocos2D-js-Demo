@@ -75,7 +75,7 @@ cc.game.onStart = function(){
 
     //load resources   对资源进行预加载，回调函数进入游戏首个场景
     cc.LoaderScene.preload(g_resources, function () {
-        cc.director.runScene(new HelloWorldScene());
+        cc.director.runScene(new secondScene());
     }, this);
 };
 // 启动游戏进程
