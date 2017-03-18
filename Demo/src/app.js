@@ -55,12 +55,13 @@ var BallLayer = cc.Layer.extend({
         // 移动小球
         // var action=cc.moveBy(1,cc.p(size.width,100));
         // ball.scale=1;
-        var action1=cc.moveTo(2,cc.p(size.width/2,size.height/2));
-        var action2=cc.scaleTo(1,2,2);
-        var sequence1=cc.sequence(action1,action2);
-        var action3=cc.scaleTo(1,1,1);
-        var sequence2=cc.sequence(sequence1,action3);
-        ball.runAction(sequence2);
+
+       var action=cc.moveBy(2,0,-(size.height-ball.height/2));
+        action.easing(cc.easeIn(2));
+        var back=action.clone().reverse();
+        back.easing(cc.easeBounceIn());
+        var sequence=cc.sequence(action,back);
+      ball.runAction(sequence);
         return true;
     }
     // update:function(){
